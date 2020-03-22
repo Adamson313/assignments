@@ -41,8 +41,13 @@ def countries_with_no_deaths_count(date: datetime.date) -> int:
     """
     
     # Your code goes here
-    pass
-
+    counter = 0
+    no_deaths = dfD[f'{date.month}/{date.day}/{date.year - 2000}']
+    cases = dfC[f'{date.month}/{date.day}/{date.year - 2000}']
+    for i range(459):
+      if no_deaths.values[i] == 0 and cases.values[i] > 0:
+            counter += 1
+    return counter
 
 def more_cured_than_deaths_indices(date: datetime.date) -> List[int]:
     """
